@@ -15,26 +15,22 @@
     </style>
 </head>
 <body style="background: lightskyblue">
-<h1 style="text-align:center">Hello, world!</h1>
-<p id = "demo" style="margin:5%"></p>
+<h1 style="text-align:center">HACKMIT 2019</h1>
+{% if hasInput == True %}
+    <h1 style="text-align:center">
+        {{ userInput }}
+    </h1>
+{% endif %}
+{% if hasInput == False %}
+    <form style="margin: 5%" method="POST">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Enter a sentence to practice!</label>
+            <input type="text" class="form-control" name="userInput" aria-describedby="emailHelp" placeholder="Enter practice sentence">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endif %}
 
-    <script>
-        var myObj, i, x = "";
-        myObj = {
-            "name":"John",
-            "age":30,
-            "cars": [
-                {"name":"Ford", "models":["Fiesta", "Focus", "Mustang"]},
-                {"name":"BMW", "models":["320", "X3", "X5"]},
-                {"name":"Fiat", "models":["500", "Panda"] }
-            ]
-        }
-        for (i in myObj.cars) {
-            x += myObj.cars[i].name + " ";
-        }
-        document.getElementById("demo").innerHTML = x;
-
-    </script>
 
 
 <!-- Optional JavaScript -->
