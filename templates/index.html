@@ -17,9 +17,11 @@
 <body style="background: lightskyblue">
 <h1 style="text-align:center">HACKMIT 2019</h1>
 {% if hasInput == True %}
-    <h1 style="text-align:center">
-        {{ userInput }}
-    </h1>
+    <button type="button" name = "startMicrophone" class="btn btn-primary">Start Speaking!</button>
+    <h2 style="text-align:left; display: inline;">
+            {{ userInput }}
+    </h2>
+
 {% endif %}
 {% if hasInput == False %}
     <form style="margin: 5%" method="POST">
@@ -30,7 +32,6 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 {% endif %}
-
 
 
 <!-- Optional JavaScript -->
