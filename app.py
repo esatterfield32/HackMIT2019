@@ -46,7 +46,7 @@ def index():
                             val = elt["value"].lower()
                             if (val != ' ' and val != '.' and val != ',' and val != '?' and val!='!'):
                                 textFromSpeech.append(val)
-                                if val != userInput[len(textFromSpeech)-1]:
+                                if len(textFromSpeech) > len(userInput) or val != userInput[len(textFromSpeech)-1]:
                                     print("lol2")
                                     raise WrongWord 
                             print(textFromSpeech)

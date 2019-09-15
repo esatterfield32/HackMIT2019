@@ -13,6 +13,9 @@
         font-weight:bold;
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
         }
+        .wrong-Word:hover span{
+        font-weight:bolder;
+        }
     </style>
 </head>
 <body style="background: lightskyblue">
@@ -20,16 +23,14 @@
 <h2>If a Machine Can Understand You, Then a Human Can Too!</h2>
 <h2>如果一台机器可以理解你，人们也可以!</h2>
 <h2>Si una máquina puede entenderlo, ¡entonces un humano también puede entenderlo!</h2>
-<button type="button" name = "Play Correct Pronunciation" class="btn btn-primary">Start Speaking!</button>
-<img src={{wordImage}} alt=wrongWord height="42" width="42">
 <p>
     <h2 style="text-align:left; display: inline;font-weight: bold" >
         What we understood:
     </h2>
     {% for word in wrongText %}
         {% if word == wrongWord %}
-            <h2 style="text-align:left; display: inline;color:red" >
-                {{ word }}
+            <h2 style = "text-align:left; display: inline; color: red;" data-toggle="tooltip" title="<img src={{wordImage}} alt=wrongWord height='70' width='70'/>">
+                {{word}}
             </h2>
         {% else %}
             <h2 style="text-align:left; display: inline;" >
@@ -49,6 +50,9 @@
     {% endfor %}
 </p>
 
+<button type="button" name = "Try Again" class="btn btn-primary">Try New Sentence!</button>
+
+
 
 
 
@@ -59,5 +63,11 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script>$('[data-toggle="tooltip"]').tooltip({
+    animated: 'fade',
+    placement: 'top',
+    html: true
+});</script>
 </body>
 </html>
