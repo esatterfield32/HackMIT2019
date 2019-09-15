@@ -3,6 +3,7 @@ import string
 import json
 import pictureFinder
 import bingImageSearch
+import textToSpeech
 
 
 class WrongWord(Exception):
@@ -40,6 +41,7 @@ def index():
                 # Iterates through responses and prints them
                 textFromSpeech = []
                 for response in response_gen:
+                    print(response)
                     response = json.loads(response)
                     if response["type"] == "final":
                         for elt in response["elements"]:
@@ -60,13 +62,16 @@ def index():
                 streamclient.client.send("EOS")
                 pass
             except WrongWord:
+                streamclient.client.send("EOS")
                 wrongText = textFromSpeech
                 wrongWord = wrongText[-1]
                 rightText = userInput
+                rightWord = "lol"
+                #rightWord = userInput[len(wrongText)-1]
                 wordImage = bingImageSearch.findImage(wrongWord)
-                return render_template('wrong.html', wrongText = wrongText, rightText = rightText, wrongWord = wrongWord, wordImage = wordImage)
+                textToSpeech.getAudio(wrongWord)
+                return render_template('wrong.html', wrongText = wrongText, rightText = rightText, wrongWord = wrongWord, wordImage = wordImage, rightWord=rightWord)
                 # Ends the websocket connection.
-                streamclient.client.send("EOS")
                 pass
     #if startMicrophone == True:
 
@@ -157,6 +162,7 @@ class MicrophoneStream(object):
                     break
 
             yield b''.join(data)
+
 
 
 if __name__ == '__main__':
