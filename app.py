@@ -50,7 +50,7 @@ def index():
                                 textFromSpeech.append(val)
                                 if len(textFromSpeech) > len(userInput) or val != userInput[len(textFromSpeech)-1]:
                                     print("lol2")
-                                    raise WrongWord 
+                                    raise WrongWord
                             print(textFromSpeech)
                             print(userInput)
                     if len(textFromSpeech) >= len(userInput):
@@ -66,9 +66,9 @@ def index():
                 wrongText = textFromSpeech
                 wrongWord = wrongText[-1]
                 rightText = userInput
-                rightWord = "lol"
-                #rightWord = userInput[len(wrongText)-1]
-                wordImage = bingImageSearch.findImage(wrongWord)
+                #rightWord = "lol"
+                rightWord = userInput[len(wrongText)-1]
+                wordImage = bingImageSearch.findImage(rightWord)
                 textToSpeech.getAudio(wrongWord)
                 return render_template('wrong.html', wrongText = wrongText, rightText = rightText, wrongWord = wrongWord, wordImage = wordImage, rightWord=rightWord)
                 # Ends the websocket connection.
