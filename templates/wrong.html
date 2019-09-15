@@ -16,26 +16,42 @@
     </style>
 </head>
 <body style="background: lightskyblue">
-<h1 style="text-align:center">COMPUTOLINGO </h1>
+<h1 style="text-align:center">COMPUTOLINGO</h1>
 <h2>If a Machine Can Understand You, Then a Human Can Too!</h2>
 <h2>如果一台机器可以理解你，人们也可以!</h2>
 <h2>Si una máquina puede entenderlo, ¡entonces un humano también puede entenderlo!</h2>
-{% if hasInput == True %}
-    <button type="button" name = "Play Correct Pronunciation" class="btn btn-primary">Start Speaking!</button>
-    <h2 style="text-align:left; display: inline;">
-            {{ userInput }}
+<button type="button" name = "Play Correct Pronunciation" class="btn btn-primary">Start Speaking!</button>
+<img src={{wordImage}} alt=wrongWord height="42" width="42">
+<p>
+    <h2 style="text-align:left; display: inline;font-weight: bold" >
+        What we understood:
     </h2>
+    {% for word in wrongText %}
+        {% if word == wrongWord %}
+            <h2 style="text-align:left; display: inline;color:red" >
+                {{ word }}
+            </h2>
+        {% else %}
+            <h2 style="text-align:left; display: inline;" >
+                {{ word }}
+            </h2>
+        {% endif %}
+    {% endfor %}
+</p>
+<p>
+    <h2 style="text-align:left; display: inline;font-weight: bold;" >
+        Your Sentence:
+    </h2>
+    {% for word in rightText %}
+        <h2 style="text-align:left; display: inline" >
+        {{ word }}
+        </h2>
+    {% endfor %}
+</p>
 
-{% endif %}
-{% if hasInput == False %}
-    <form style="margin: 5%" method="POST">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Enter a sentence to practice!</label>
-            <input type="text" class="form-control" name="userInput" aria-describedby="emailHelp" placeholder="Enter practice sentence">
-        </div>
-        <button type="submit" class="btn btn-primary">Start Speaking!</button>
-    </form>
-{% endif %}
+
+
+
 
 
 <!-- Optional JavaScript -->
