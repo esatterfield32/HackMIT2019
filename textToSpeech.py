@@ -7,7 +7,7 @@ text_to_speech = TextToSpeechV1(
 )
 text_to_speech.disable_SSL_verification()
 def getAudio(word):
-    with open('pronunciation.wav', 'wb') as audio_file:
+    with open('newpronunciation.wav', 'wb') as audio_file:
         audio_file.write(
             text_to_speech.synthesize(
                 word,

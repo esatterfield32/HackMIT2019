@@ -61,7 +61,7 @@
         </script>
 </head>
 <body style="background: lightskyblue">
-<h1 style="text-align:center">COMPUTOLINGO</h1>
+<h1 style="padding:30px;text-align:center">COMPUTOLINGO</h1>
 <div style="padding:30px;text-align: center;">
         <h2>If a Machine Can Understand You, Then a Human Can Too!</h2>
         <h2>如果一台机器可以理解你，人们也可以!</h2>
@@ -90,6 +90,7 @@
     </h2>
     {% for word in rightText %}
         {% if word == rightWord %}
+
             <h2 style = "text-align:left; display: inline; color: green;" data-toggle="tooltip" title="<img src={{wordImage}} alt=rightWord height='100' width='100'/>">
                 <a href="#" style = "color: green" onclick="wordPronunciation.play()">{{word}}</a>
             </h2>

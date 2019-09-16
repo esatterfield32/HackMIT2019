@@ -62,16 +62,16 @@ def index():
                 streamclient.client.send("EOS")
                 pass
             except WrongWord:
-                streamclient.client.send("EOS")
                 wrongText = textFromSpeech
                 wrongWord = wrongText[-1]
                 rightText = userInput
                 #rightWord = "lol"
                 rightWord = userInput[len(wrongText)-1]
                 wordImage = bingImageSearch.findImage(rightWord)
-                textToSpeech.getAudio(wrongWord)
+                textToSpeech.getAudio(rightWord)
                 return render_template('wrong.html', wrongText = wrongText, rightText = rightText, wrongWord = wrongWord, wordImage = wordImage, rightWord=rightWord)
                 # Ends the websocket connection.
+                streamclient.client.send("EOS")
                 pass
     #if startMicrophone == True:
 
